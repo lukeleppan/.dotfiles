@@ -1,5 +1,6 @@
 if status is-interactive
 	set -U fish_greeting
+	set -x GPG_TTY (tty)
 
 	neofetch
 
