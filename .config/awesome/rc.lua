@@ -21,8 +21,6 @@ require("awful.hotkeys_popup.keys")
 ---------------------------------------------------------------------------------
 -- Error handling
 ---------------------------------------------------------------------------------
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
@@ -43,6 +41,8 @@ do
         in_error = false
     end)
 end
+---------------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------------
 -- Variable definitions
@@ -80,7 +80,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- }}}
+---------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
 -- Menu
@@ -104,12 +104,14 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
+---------------------------------------------------------------------------------
 
--- {{{ Wibar
+---------------------------------------------------------------------------------
+-- Wibar
+---------------------------------------------------------------------------------
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
@@ -221,7 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
--- }}}
+---------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
 -- Mouse bindings
@@ -231,7 +233,7 @@ root.buttons(gears.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
+---------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
 -- Key bindings
@@ -447,7 +449,7 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
--- }}}
+---------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
 -- Rules
@@ -507,7 +509,7 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 }
--- }}}
+---------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
 -- Signals
@@ -573,4 +575,4 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
+---------------------------------------------------------------------------------
