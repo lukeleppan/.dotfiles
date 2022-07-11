@@ -18,7 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- {{{ Error handling
+---------------------------------------------------------------------------------
+-- Error handling
+---------------------------------------------------------------------------------
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -41,9 +43,10 @@ do
         in_error = false
     end)
 end
--- }}}
 
--- {{{ Variable definitions
+---------------------------------------------------------------------------------
+-- Variable definitions
+---------------------------------------------------------------------------------
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
@@ -79,7 +82,9 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
+---------------------------------------------------------------------------------
+-- Menu
+---------------------------------------------------------------------------------
 -- Create a launcher widget and a main menu
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
@@ -218,7 +223,9 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
--- {{{ Mouse bindings
+---------------------------------------------------------------------------------
+-- Mouse bindings
+---------------------------------------------------------------------------------
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
@@ -226,7 +233,9 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
--- {{{ Key bindings
+---------------------------------------------------------------------------------
+-- Key bindings
+---------------------------------------------------------------------------------
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -440,7 +449,9 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 -- }}}
 
--- {{{ Rules
+---------------------------------------------------------------------------------
+-- Rules
+---------------------------------------------------------------------------------
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -498,7 +509,9 @@ awful.rules.rules = {
 }
 -- }}}
 
--- {{{ Signals
+---------------------------------------------------------------------------------
+-- Signals
+---------------------------------------------------------------------------------
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
